@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+* {
+    font-family: gabarito, sans-serif;
+}
+
+button {
+    cursor: pointer;
+  }
+  

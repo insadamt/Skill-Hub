@@ -1,0 +1,30 @@
+{
+  "courses": [
+    {
+      "id": "0",
+      "title": "Demo",
+      "category": "Design",
+      "level": "Beginner",
+      "status": "Draft",
+      "instructor": "Mr Karim",
+      "price": 500,
+      "duration": 90,
+      "description": "Demo Course for testing",
+      "studentsNumber": 50,
+      "certification": "Certificated"
+    },
+    {
+      "id": "1",
+      "title": "Demo",
+      "category": "Marketing",
+      "level": "Beginner",
+      "status": "Public",
+      "instructor": "Mr Karim",
+      "price": 400,
+      "duration": 40,
+      "description": "Demo Course for testing",
+      "studentsNumber": 100,
+      "certification": "Not Certificated"
+    }
+  ]
+}
