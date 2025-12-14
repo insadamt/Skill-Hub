@@ -34,12 +34,12 @@ function App() {
                 />
               }
             />
-            <Route path="/Skill-Hub/catalogue" element={<Catalogue />} />
-            <Route path="/Skill-Hub/course/add" element={<CourseAdd />} />
-            <Route path="/Skill-Hub/course/edit/:id" element={<CourseEdit />} />
-            <Route path="/Skill-Hub/course/:id" element={<CoursePage />} />
-            <Route path="/Skill-Hub/dashboard" element={<Dashboard />} />
-            <Route path="/Skill-Hub/about" element={<AboutUs />} />
+            <Route path="/catalogue" element={<Catalogue />} />
+            <Route path="/course/add" element={<CourseAdd />} />
+            <Route path="/course/edit/:id" element={<CourseEdit />} />
+            <Route path="/course/:id" element={<CoursePage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </div>

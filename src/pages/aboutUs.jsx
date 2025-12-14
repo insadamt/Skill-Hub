@@ -97,7 +97,7 @@ const AboutUs = () => {
             </div>
             <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
               <img className="w-40 h-40" src={tailwindLogo} alt="" />
-              <h1 className="text-3xl">React JS</h1>
+              <h1 className="text-3xl">Tailwind CSS</h1>
             </div>
           </div>
         </div>
