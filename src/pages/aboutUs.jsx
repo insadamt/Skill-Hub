@@ -1,3 +1,9 @@
+import insaydPhoto from '../assets/insayd.jpg';
+import userPhoto from '../assets/user.png';
+import reactLogo from '../assets/react.png';
+import reduxLogo from '../assets/redux.png';
+import tailwindLogo from '../assets/tailwind.png';
+
 const AboutUs = () => {
   return (
     <div className="p-5 grid h-full">
@@ -47,7 +53,7 @@ const AboutUs = () => {
           <div className="bg-gray-200 py-10 rounded-md flex flex-col justify-between">
             <div className="flex flex-col items-center">
               <img
-                src="/assets/insayd.jpg"
+                src={insaydPhoto}
                 alt=""
                 className="rounded-lg w-50"
               />
@@ -64,7 +70,7 @@ const AboutUs = () => {
           <div className="bg-gray-200 py-10 rounded-md flex flex-col justify-between">
             <div className="flex flex-col items-center">
               <img
-                src="/assets/user.png"
+                src={userPhoto}
                 alt=""
                 className="rounded-lg w-50 bg-gray-300 p-4"
               />
@@ -82,15 +88,15 @@ const AboutUs = () => {
           <h1 className="text-4xl">Used Technologies</h1>
           <div className="grid grid-cols-3 gap-4 mt-4 h-100">
             <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-              <img className="w-40 h-40" src="assets/react.png" alt="" />
+            <img className="w-40 h-40" src={reactLogo} alt="" />
               <h1 className="text-3xl">React JS</h1>
             </div>
             <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-              <img className="w-40 h-40" src="assets/redux.png" alt="" />
+              <img className="w-40 h-40" src={reduxLogo} alt="" />
               <h1 className="text-3xl">Redux</h1>
             </div>
             <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-              <img className="w-40 h-40" src="assets/tailwind.png" alt="" />
+              <img className="w-40 h-40" src={tailwindLogo} alt="" />
               <h1 className="text-3xl">React JS</h1>
             </div>
           </div>
