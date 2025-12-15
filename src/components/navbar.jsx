@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Home,
   BookOpenText,
@@ -20,7 +20,7 @@ const Navbar = ({ showLoginForm, setShowLoginForm }) => {
     { path: "/about", name: "About Us", icon: CircleEllipsis },
   ];
 
-
+  const navigate = useNavigate()
   const loginInfo = useSelector((state) => state.admin);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -72,7 +72,7 @@ const Navbar = ({ showLoginForm, setShowLoginForm }) => {
           </button>
         ) : (
           <button
-            onClick={() => setShowLoginForm(true)}
+            onClick={() => {navigate("/"); setShowLoginForm(true)}}
             className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 font-medium mb-4"
           >
             <LogIn size={18} strokeWidth={2} />

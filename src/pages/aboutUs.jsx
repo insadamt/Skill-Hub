@@ -4,13 +4,14 @@ import reactLogo from '../assets/react.png';
 import reduxLogo from '../assets/redux.png';
 import tailwindLogo from '../assets/tailwind.png';
 
+
 const AboutUs = () => {
   return (
-    <div className="p-5 grid h-full">
+    <div className="p-8 grid h-full gap-8">
       <div>
-        <h1 className="text-5xl font-bold">About Us</h1>
-        <div className="mt-5 bg-gray-200 p-3 rounded-md">
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+        <h1 className="text-5xl font-bold mb-6">About Us</h1>
+        <div className="bg-white border-2 border-black p-6 rounded-lg">
+          <p className="text-base leading-relaxed mb-4">
             SkillHub Academy is a comprehensive online training platform based
             in Casablanca, dedicated to providing high-quality educational
             courses across multiple disciplines. Our platform serves as a bridge
@@ -19,7 +20,8 @@ const AboutUs = () => {
             professionals, and lifelong learners.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+
+          <p className="text-base leading-relaxed mb-4">
             With courses spanning various domains including Design, Development,
             Marketing, Business, and Languages, SkillHub Academy ensures that
             learners have access to relevant, up-to-date content tailored to
@@ -28,7 +30,8 @@ const AboutUs = () => {
             that can be immediately applied in real-world scenarios.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+
+          <p className="text-base leading-relaxed mb-4">
             The platform features an intuitive course management system that
             allows administrators to create, organize, and maintain educational
             content efficiently. Learners benefit from detailed course
@@ -37,7 +40,8 @@ const AboutUs = () => {
             make informed decisions about their learning journey.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+
+          <p className="text-base leading-relaxed">
             Built with cutting-edge web technologies including React 18+, Redux
             Toolkit for state management, and Tailwind CSS for modern,
             responsive design, SkillHub Academy represents the future of online
@@ -47,57 +51,58 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <hr />
-      <div className="grid grid-cols-2 gap-5">
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-gray-200 py-10 rounded-md flex flex-col justify-between">
+      <div className="h-0.5 w-full bg-black"></div>
+      <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-white border-2 border-black py-8 px-4 rounded-lg flex flex-col justify-between">
             <div className="flex flex-col items-center">
               <img
                 src={insaydPhoto}
                 alt=""
-                className="rounded-lg w-50"
+                className="rounded-lg w-32 h-32 object-cover border-2 border-black"
               />
-              <h1 className="text-2xl mt-3">Mohammed Amine Rafi</h1>
-              <p>(insayd Cyan)</p>
-              <hr className="w-50 my-4 text-gray-500 border " />
-              <p>Frontend Developer</p>
-              <p>UX/UI Designer</p>
+              <h1 className="text-xl font-bold mt-4 text-center">Mohammed Amine Rafi</h1>
+              <p className="text-sm">(insayd Cyan)</p>
+              <div className="h-0.5 w-20 bg-black my-4"></div>
+              <p className="text-sm font-medium">Frontend Developer</p>
+              <p className="text-sm font-medium">UX/UI Designer</p>
             </div>
-            <div>
-              <p className="text-center">ISAG - DEV202</p>
+            <div className="mt-6">
+              <p className="text-center text-sm font-semibold">ISAG - DEV202</p>
             </div>
           </div>
-          <div className="bg-gray-200 py-10 rounded-md flex flex-col justify-between">
+          <div className="bg-white border-2 border-black py-8 px-4 rounded-lg flex flex-col justify-between">
             <div className="flex flex-col items-center">
               <img
                 src={userPhoto}
                 alt=""
-                className="rounded-lg w-50 bg-gray-300 p-4"
+                className="rounded-lg w-32 h-32 object-cover border-2 border-black p-4"
               />
-              <h1 className="text-2xl mt-3">Mohammed Abo Lhilal</h1>
+              <h1 className="text-xl font-bold mt-4 text-center">Mohammed Abo Lhilal</h1>
 
-              <hr className="w-50 my-4 text-gray-500 border " />
-              <p>Frontend Developer</p>
+
+              <div className="h-0.5 w-20 bg-black my-4"></div>
+              <p className="text-sm font-medium">Frontend Developer</p>
             </div>
-            <div>
-              <p className="text-center">ISAG - DEV202</p>
+            <div className="mt-6">
+              <p className="text-center text-sm font-semibold">ISAG - DEV202</p>
             </div>
           </div>
         </div>
-        <div className="">
-          <h1 className="text-4xl">Used Technologies</h1>
-          <div className="grid grid-cols-3 gap-4 mt-4 h-100">
-            <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-            <img className="w-40 h-40" src={reactLogo} alt="" />
-              <h1 className="text-3xl">React JS</h1>
+        <div>
+          <h1 className="text-4xl font-bold mb-6">Used Technologies</h1>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-white border-2 border-black p-6 rounded-lg flex flex-col justify-center items-center gap-4">
+            <img className="w-32 h-32 object-contain" src={reactLogo} alt="" />
+              <h1 className="text-2xl font-bold">React JS</h1>
             </div>
-            <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-              <img className="w-40 h-40" src={reduxLogo} alt="" />
-              <h1 className="text-3xl">Redux</h1>
+            <div className="bg-white border-2 border-black p-6 rounded-lg flex flex-col justify-center items-center gap-4 ">
+              <img className="w-32 h-32 object-contain" src={reduxLogo} alt="" />
+              <h1 className="text-2xl font-bold">Redux</h1>
             </div>
-            <div className="bg-gray-200 p-4 rounded-md gap-4 flex flex-col justify-center items-center">
-              <img className="w-40 h-40" src={tailwindLogo} alt="" />
-              <h1 className="text-3xl">Tailwind CSS</h1>
+            <div className="bg-white border-2 border-black p-6 rounded-lg flex flex-col justify-center items-center gap-4 ">
+              <img className="w-32 h-32 object-contain" src={tailwindLogo} alt="" />
+              <h1 className="text-2xl font-bold">Tailwind CSS</h1>
             </div>
           </div>
         </div>
@@ -105,5 +110,6 @@ const AboutUs = () => {
     </div>
   );
 };
+
 
 export default AboutUs;

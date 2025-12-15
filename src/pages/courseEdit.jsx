@@ -4,18 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { editCourse } from "../redux/courseSlice";
 
+
 const CourseEdit = () => {
   const { id } = useParams();
+
 
   const courses = useSelector((state) => state.courses);
   const course = courses.find((course) => course.id == id);
   const navigate = useNavigate();
 
+
   const loginInfo = useSelector((state) => state.admin);
+
 
   if (!loginInfo.loggedIn) {
     return <Navigate to="/" replace />;
   }
+
 
   const [inputs, setInputs] = useState({
     id: id,
@@ -31,15 +36,18 @@ const CourseEdit = () => {
     certification: course.certification,
   });
 
+
   function handleInputs(e) {
     const name = e.target.name;
     const value = e.target.value;
+
 
     setInputs({
       ...inputs,
       [name]: value,
     });
   }
+
 
   const [errors, setErrors] = useState({
     title: false,
@@ -49,6 +57,7 @@ const CourseEdit = () => {
     studentsNumber: false,
     duration: false,
   });
+
 
   function handleEdit() {
     const errors = {
@@ -60,8 +69,10 @@ const CourseEdit = () => {
       duration: inputs.duration < 0 || !inputs.duration,
     };
 
+
     const hasError = Object.values(errors).includes(true);
     setErrors(errors);
+
 
     if (!hasError) {
       dispatch(editCourse(inputs));
@@ -69,87 +80,85 @@ const CourseEdit = () => {
     }
   }
 
+
   const dispatch = useDispatch();
 
+
   return (
-    <div className="p-5">
-      <h1 className="text-5xl font-bold">Edit Course</h1>
-      <div className="mt-4 gap-4 bg-gray-100/50 p-5 rounded-md">
-        <h1 className="text-4xl">Course Info</h1>
-        <div className="mt-3">
-          <label htmlFor="" className="text-2xl">
+    <div className="p-8">
+      <h1 className="text-5xl font-bold mb-6">Edit Course</h1>
+      <div className="mb-6 bg-white border-2 border-black p-6 rounded-lg">
+        <h1 className="text-3xl font-bold mb-4">Course Info</h1>
+        <div className="mb-4">
+          <label htmlFor="" className="text-lg font-semibold block mb-2">
             Title
           </label>
-          <br />
           <input
             placeholder="Course Title"
             type="text"
             name="title"
             className={
               errors.title
-                ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                : "bg-gray-300/50 p-2 w-full rounded"
+                ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500"
+                : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
             }
             value={inputs.title}
             onChange={(e) => handleInputs(e)}
           />
           {errors.title ? (
-            <p className="text-red-500 mt-1">Title is Empty !</p>
+            <p className="text-sm font-medium mt-2">Title is Empty !</p>
           ) : null}
         </div>
-        <div className="mt-3">
-          <label htmlFor="" className="text-2xl">
+        <div className="mb-4">
+          <label htmlFor="" className="text-lg font-semibold block mb-2">
             Description
           </label>
-          <br />
           <textarea
             placeholder="Course Description"
             type="text"
             name="description"
             className={
               errors.description
-                ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                : "bg-gray-300/50 p-2 w-full rounded"
+                ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500 min-h-24"
+                : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black min-h-24"
             }
             value={inputs.description}
             onChange={(e) => handleInputs(e)}
           />
           {errors.description ? (
-            <p className="text-red-500 mt-1">Description is Empty !</p>
+            <p className="text-sm font-medium mt-2">Description is Empty !</p>
           ) : null}
         </div>
-        <div className="mt-3">
-          <label htmlFor="" className="text-2xl">
+        <div className="mb-4">
+          <label htmlFor="" className="text-lg font-semibold block mb-2">
             Instructor
           </label>
-          <br />
           <input
             placeholder="Course Instructor"
             type="text"
             name="instructor"
             className={
               errors.instructor
-                ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                : "bg-gray-300/50 p-2 w-full rounded"
+                ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500"
+                : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
             }
             value={inputs.instructor}
             onChange={(e) => handleInputs(e)}
           />
           {errors.instructor ? (
-            <p className="text-red-500 mt-1">Instructor is Empty !</p>
+            <p className="text-sm font-medium mt-2">Instructor is Empty !</p>
           ) : null}
         </div>
       </div>
-      <div className="mt-4 gap-4 bg-gray-100/50 p-5 rounded-md">
-        <h1 className="text-4xl">Course Details</h1>
-        <div className="grid grid-cols-2 gap-5">
-          <div className="mt-3">
-            <label className="text-2xl" htmlFor="">
+      <div className="mb-6 bg-white border-2 border-black p-6 rounded-lg">
+        <h1 className="text-3xl font-bold mb-4">Course Details</h1>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="mb-4">
+            <label className="text-lg font-semibold block mb-2" htmlFor="">
               Category
             </label>
-            <br />
             <select
-              className="bg-gray-300/50 p-2 w-full rounded"
+              className="bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
               name="category"
               onChange={(e) => handleInputs(e)}
               value={inputs.category}
@@ -161,13 +170,12 @@ const CourseEdit = () => {
               <option value="Languages">Languages</option>
             </select>
           </div>
-          <div className="mt-3">
-            <label className="text-2xl" htmlFor="">
+          <div className="mb-4">
+            <label className="text-lg font-semibold block mb-2" htmlFor="">
               Level
             </label>
-            <br />
             <select
-              className="bg-gray-300/50 p-2 w-full rounded"
+              className="bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
               name="level"
               onChange={(e) => handleInputs(e)}
               value={inputs.level}
@@ -178,13 +186,12 @@ const CourseEdit = () => {
               <option value="Expert">Expert</option>
             </select>
           </div>
-          <div className="mt-3 ">
-            <label className="text-2xl" htmlFor="">
+          <div className="mb-4">
+            <label className="text-lg font-semibold block mb-2" htmlFor="">
               Status
             </label>
-            <br />
             <select
-              className="bg-gray-300/50 p-2 w-full rounded"
+              className="bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
               name="status"
               onChange={(e) => handleInputs(e)}
               value={inputs.status}
@@ -194,13 +201,12 @@ const CourseEdit = () => {
               <option value="Public">Public</option>
             </select>
           </div>
-          <div className="mt-3">
-            <label className="text-2xl" htmlFor="">
+          <div className="mb-4">
+            <label className="text-lg font-semibold block mb-2" htmlFor="">
               Certification
             </label>
-            <br />
             <select
-              className="bg-gray-300/50 p-2 w-full rounded"
+              className="bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
               name="certification"
               onChange={(e) => handleInputs(e)}
               value={inputs.certification}
@@ -209,72 +215,69 @@ const CourseEdit = () => {
               <option value="Not certificated">Not Certificated</option>
             </select>
           </div>
-          <div className="col-span-2 grid grid-cols-3 gap-5">
-            <div className="mt-3">
-              <label htmlFor="" className="text-2xl">
+          <div className="col-span-2 grid grid-cols-3 gap-4">
+            <div className="mb-4">
+              <label htmlFor="" className="text-lg font-semibold block mb-2">
                 Price
               </label>
-              <br />
               <input
                 placeholder="Course Price"
                 type="number"
                 name="price"
                 className={
                   errors.price
-                    ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                    : "bg-gray-300/50 p-2 w-full rounded"
+                    ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500"
+                    : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
                 }
                 value={inputs.price}
                 onChange={(e) => handleInputs(e)}
               />
               {errors.price ? (
-                <p className="text-red-500 mt-1">
+                <p className="text-sm font-medium mt-2">
                   Price must be greater than 0 !
                 </p>
               ) : null}
             </div>
-            <div className="mt-3">
-              <label htmlFor="" className="text-2xl">
+            <div className="mb-4">
+              <label htmlFor="" className="text-lg font-semibold block mb-2">
                 Students Number
               </label>
-              <br />
               <input
                 placeholder="Total Students"
                 type="number"
                 name="studentsNumber"
                 className={
                   errors.studentsNumber
-                    ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                    : "bg-gray-300/50 p-2 w-full rounded"
+                    ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500"
+                    : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
                 }
                 value={inputs.studentsNumber}
                 onChange={(e) => handleInputs(e)}
               />
               {errors.studentsNumber ? (
-                <p className="text-red-500 mt-1">
+                <p className="text-sm font-medium mt-2">
                   Students Number must be greater than 0 !
                 </p>
               ) : null}
             </div>
-            <div className="mt-3">
-              <label htmlFor="" className="text-2xl">
+            <div className="mb-4">
+              <label htmlFor="" className="text-lg font-semibold block mb-2">
                 Duration
               </label>
-              <br />
               <input
                 placeholder="Total Students"
                 type="number"
                 name="duration"
                 className={
                   errors.duration
-                    ? "bg-gray-300/50 border border-red-500 p-2 w-full rounded"
-                    : "bg-gray-300/50 p-2 w-full rounded"
+                    ? "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black border-red-500"
+                    : "bg-white border-2 border-black p-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-black"
                 }
                 value={inputs.duration}
                 onChange={(e) => handleInputs(e)}
               />
               {errors.duration ? (
-                <p className="text-red-500 mt-1">
+                <p className="text-sm font-medium mt-2">
                   Duration must be greater than 0 !
                 </p>
               ) : null}
@@ -282,17 +285,18 @@ const CourseEdit = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-3">
+      <div className="flex justify-end">
         <button
-          className="p-3 bg-green-400/80 rounded-md flex gap-2 hover:bg-green-400 hover:scale-105 duration-300"
+          className="px-6 py-3 bg-black text-white border-2 border-black rounded-lg flex items-center gap-2 font-medium hover:bg-white hover:text-black transition-all duration-300"
           onClick={handleEdit}
         >
-          <SquareCheck />
+          <SquareCheck size={20} strokeWidth={2} />
           Save
         </button>
       </div>
     </div>
   );
 };
+
 
 export default CourseEdit;
