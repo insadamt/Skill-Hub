@@ -9,19 +9,23 @@ import AboutUs from './pages/aboutUs';
 import Navbar from './components/navbar';
 import { useState } from 'react';
 
+
+
 function App() {
   const [showLoginForm, setShowLoginForm] = useState(false);
 
+
+
   return (
     <Router>
-      <div className="grid grid-cols-12 gap-3 p-3 h-screen bg-neutral-100">
-        <div className="col-span-2 h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 grid-rows-[auto_1fr] md:grid-rows-1 gap-1.5 p-2 md:gap-3 md:p-3 lg:gap-4 lg:p-4 h-screen bg-neutral-100 max-w-[1920px] mx-auto w-full">
+        <aside className="col-span-12 lg:col-span-2 h-auto md:h-full sticky top-0 z-20 md:static" role="navigation">
           <Navbar 
             showLoginForm={showLoginForm} 
             setShowLoginForm={setShowLoginForm} 
           />
-        </div>
-        <div className="col-span-10 bg-white rounded-lg overflow-y-auto h-full">
+        </aside>
+        <main className="col-span-12 lg:col-span-10 bg-white rounded-lg overflow-y-auto h-[calc(100vh-5rem)] md:h-full shadow-sm md:shadow-md p-4 md:p-6 lg:p-8" aria-label="Main content">
           <Routes>
             <Route 
               path="/" 
@@ -39,10 +43,13 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
-        </div>
+        </main>
+        
       </div>
     </Router>
   );
 }
+
+
 
 export default App;

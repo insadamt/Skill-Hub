@@ -57,7 +57,7 @@ const LoginForm = ({setShowLoginForm}) => {
           value={inputs.password}
           onChange={(e) => handleInputs(e)}
         />
-        {invalid ? <p className="p-1 bg-red-200 text-red-500 rounded-md text-center">Invalid username or password</p> : ""}
+        {invalid ? <p className="p-1 bg-red-200 text-red-500 rounded-md text-center">Invalid username or password</p> : null}
         <button
           className="w-full bg-blue-500 text-white p-2 rounded-md mt-4 hover:bg-blue-600"
           onClick={handleClick}

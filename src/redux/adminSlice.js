@@ -5,7 +5,8 @@ const adminSlice = createSlice({
   initialState: {
     username: "admin",
     password: "admin",
-    loggedIn : false,
+    loggedIn : true,
+    
   },
   reducers: {
     login: (state, action) => {
