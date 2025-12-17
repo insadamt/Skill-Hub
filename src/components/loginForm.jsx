@@ -35,35 +35,49 @@ const LoginForm = ({setShowLoginForm}) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50">
-      <div className="relative p-6 bg-white/10 rounded-lg backdrop-blur-md max-w-md mx-4">
-      <button className="bg-red-200 text-red-500 p-2 w-fit rounded absolute top-5 right-6" onClick={() => setShowLoginForm(false)}>
-        <XSquare />
-      </button>
-        <h2 className="text-white text-2xl font-bold mb-4">Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          className="bg-white p-2 w-full rounded mb-3"
-          name="username"
-          value={inputs.username}
-          onChange={(e) => handleInputs(e)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="bg-white p-2 w-full rounded mb-4"
-          name="password"
-          value={inputs.password}
-          onChange={(e) => handleInputs(e)}
-        />
-        {invalid ? <p className="p-1 bg-red-200 text-red-500 rounded-md text-center">Invalid username or password</p> : ""}
-        <button
-          className="w-full bg-blue-500 text-white p-2 rounded-md mt-4 hover:bg-blue-600"
-          onClick={handleClick}
+    <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md flex justify-center items-center z-50 p-4">
+      <div className="relative w-full max-w-md bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-black rounded-2xl shadow-2xl p-8 sm:p-10">
+        <button 
+          className="absolute top-6 right-6 p-2 rounded-lg bg-neutral-200/60 dark:bg-neutral-800/60 text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-all duration-200 shadow-sm" 
+          onClick={() => setShowLoginForm(false)}
         >
-          Login
+          <XSquare className="w-5 h-5" />
         </button>
+
+        <h2 className="font-gabarito text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-50 mb-8">Login</h2>
+
+        <div className="space-y-5">
+          <input
+            type="text"
+            placeholder="Username"
+            className="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-neutral-800/60 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 shadow-sm font-gabarito"
+            name="username"
+            value={inputs.username}
+            onChange={(e) => handleInputs(e)}
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-neutral-800/60 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 shadow-sm font-gabarito"
+            name="password"
+            value={inputs.password}
+            onChange={(e) => handleInputs(e)}
+          />
+
+          {invalid && (
+            <div className="px-4 py-3 rounded-xl bg-red-50/80 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm text-center font-gabarito font-medium shadow-sm">
+              Invalid username or password
+            </div>
+          )}
+
+          <button
+            className="w-full px-4 py-3 mt-2 rounded-xl bg-gradient-to-r from-neutral-800 to-neutral-900 dark:from-neutral-700 dark:to-neutral-800 text-neutral-50 font-gabarito font-semibold hover:from-neutral-900 hover:to-black dark:hover:from-neutral-600 dark:hover:to-neutral-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+            onClick={handleClick}
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );

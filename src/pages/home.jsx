@@ -17,15 +17,23 @@ import {
 } from "lucide-react";
 import { useSelector } from "react-redux";
 
+
+
 import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../components/loginForm";
 import { useState } from "react";
+
+
 
 const Home = ({showLoginForm, setShowLoginForm}) => {
   const loginInfo = useSelector((state) => state.admin);
   const navigate = useNavigate()
 
+
+
   
+
+
 
   function handleDashboard() {
     if (loginInfo.loggedIn) {
@@ -36,6 +44,8 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
       setShowLoginForm(true)
     }
   }
+
+
 
   const floatingIcons = [
     { Icon: Code2, top: "10%", left: "15%", delay: 0, size: 40 },
@@ -55,52 +65,63 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
     { Icon: Settings, top: "28%", left: "72%", delay: 7, size: 37 },
   ];
 
+
+
   return (
-    <div className="relative h-full flex justify-center items-center overflow-hidden  from-gray-50 to-gray-100">
+    <div className="relative w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900">
       {floatingIcons.map((item, index) => {
         const IconComponent = item.Icon;
         return (
           <div
             key={index}
-            className="absolute"
+            className="absolute hidden lg:block"
             style={{
               top: item.top,
               left: item.left,
               right: item.right,
-              animation: `float 8s ease-in-out infinite`,
+              animation: `float 12s ease-in-out infinite`,
               animationDelay: `${item.delay}s`,
             }}
           >
             <IconComponent
               size={item.size}
               strokeWidth={1}
-              className="text-black opacity-10"
+              className="text-neutral-900 dark:text-neutral-50 opacity-5"
             />
           </div>
         );
       })}
 
-      <div className="relative z-10 text-center">
-        <h1 className="text-9xl font-bold mb-8">
-          Skill Hub <br /> <span className="text-8xl">Learn Anything</span>
+
+
+      <div className="flex flex-col justify-center items-center h-full px-6 max-w-4xl mx-auto">
+        <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold font-gabarito text-neutral-900 dark:text-neutral-50 mb-4 lg:mb-6 leading-tight">
+          Skill Hub
         </h1>
-        <div className="flex gap-5 text-lg justify-center">
+        <p className="text-4xl sm:text-5xl lg:text-8xl font-bold font-gabarito text-neutral-700 dark:text-neutral-300 mb-8 lg:mb-10 leading-tight">
+          Learn Anything
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 text-base lg:text-lg w-full sm:w-auto">
           <Link
             to="/catalogue"
-            className="px-10 py-4 bg-black text-white rounded-lg font-medium hover:bg-white hover:text-black border-2 border-black  duration-300 hover:shadow-lg hover:scale-105"
+            className="px-8 text-center lg:px-10 py-3 lg:py-4 bg-gradient-to-br from-neutral-900 to-neutral-950 dark:from-neutral-100 dark:to-neutral-50 text-neutral-50 dark:text-neutral-900 rounded-xl font-gabarito font-semibold shadow-md dark:shadow-black/20 hover:shadow-lg hover:scale-105 transition-all duration-200 border border-neutral-900 dark:border-neutral-100"
           >
             Start Learning
           </Link>
           <button
             onClick={handleDashboard}
-            className="px-10 py-4 bg-white text-black rounded-lg font-medium border-2 border-black hover:bg-black hover:text-white  duration-300 hover:shadow-lg hover:scale-105"
+            className="px-8 lg:px-10 py-3 lg:py-4 bg-white/50 dark:bg-neutral-800/30 text-neutral-900 dark:text-neutral-50 rounded-xl font-gabarito font-semibold border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200/70 dark:hover:bg-neutral-700/50 hover:shadow-md hover:scale-105 transition-all duration-200"
           >
             Dashboard
           </button>
         </div>
       </div>
 
-      {showLoginForm ? <LoginForm setShowLoginForm={setShowLoginForm}/> : null}
+
+
+      
+
+
 
       <style>{`
           @keyframes float {
@@ -108,18 +129,20 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
               transform: translateY(0px) rotate(0deg);
             }
             25% {
-              transform: translateY(-20px) rotate(5deg);
+              transform: translateY(-15px) rotate(2deg);
             }
             50% {
-              transform: translateY(-10px) rotate(-5deg);
+              transform: translateY(-8px) rotate(-2deg);
             }
             75% {
-              transform: translateY(-15px) rotate(3deg);
+              transform: translateY(-12px) rotate(1deg);
             }
           }
         `}</style>
     </div>
   );
 };
+
+
 
 export default Home;
