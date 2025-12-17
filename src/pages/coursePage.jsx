@@ -35,7 +35,7 @@ const CoursePage = () => {
                             <h2 className="text-2xl lg:text-3xl font-bold font-gabarito text-neutral-900 dark:text-neutral-50 mb-2">{course.title}</h2>
                             <p className="text-sm text-neutral-600 dark:text-neutral-400">by {course.instructor}</p>
                         </div>
-                        <div className={`${levelBadges[course.level]} rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide whitespace-nowrap`}>
+                        <div className={`${levelBadges[course.level]} rounded-lg px-3 py-1.5 text-xs font-bold tracking-wide whitespace-nowrap`}>
                             {course.level}
                         </div>
                     </div>
