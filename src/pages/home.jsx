@@ -17,35 +17,24 @@ import {
 } from "lucide-react";
 import { useSelector } from "react-redux";
 
-
-
 import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../components/loginForm";
 import { useState } from "react";
+import RotatingText from "../components/RotatingText";
+import { motion, LayoutGroup } from "framer-motion";
 
-
-
-const Home = ({showLoginForm, setShowLoginForm}) => {
+const Home = ({ showLoginForm, setShowLoginForm }) => {
   const loginInfo = useSelector((state) => state.admin);
-  const navigate = useNavigate()
-
-
-
-  
-
-
+  const navigate = useNavigate();
 
   function handleDashboard() {
     if (loginInfo.loggedIn) {
-      setShowLoginForm(false)
-      navigate("/dashboard")
-    }
-    else {
-      setShowLoginForm(true)
+      setShowLoginForm(false);
+      navigate("/dashboard");
+    } else {
+      setShowLoginForm(true);
     }
   }
-
-
 
   const floatingIcons = [
     { Icon: Code2, top: "10%", left: "15%", delay: 0, size: 40 },
@@ -64,8 +53,6 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
     { Icon: Package, top: "55%", right: "85%", delay: 6.5, size: 35 },
     { Icon: Settings, top: "28%", left: "72%", delay: 7, size: 37 },
   ];
-
-
 
   return (
     <div className="relative w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900">
@@ -92,15 +79,40 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
         );
       })}
 
-
-
       <div className="flex flex-col justify-center items-center h-full px-6 max-w-4xl mx-auto">
         <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold font-gabarito text-neutral-900 dark:text-neutral-50 mb-4 lg:mb-6 leading-tight">
           Skill Hub
         </h1>
-        <p className="text-4xl sm:text-5xl lg:text-8xl font-bold font-gabarito text-neutral-700 dark:text-neutral-300 mb-8 lg:mb-10 leading-tight">
-          Learn Anything
-        </p>
+<LayoutGroup>
+<div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 lg:mb-10">
+  <motion.p 
+    layout="position"
+    transition={{ layout: { duration: 0.3, ease: "easeOut" } }}
+    className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold font-gabarito text-neutral-700 dark:text-neutral-300 leading-tight"
+  >
+    Learn
+  </motion.p>
+  <RotatingText
+    texts={[
+      "Anything",
+      "Languages",
+      "Design",
+      "Development",
+      "Marketing",
+      "Business",
+    ]}
+    mainClassName="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold font-gabarito px-3 sm:px-4 md:px-5 lg:px-6 bg-gradient-to-br from-neutral-900 to-neutral-950 dark:from-neutral-100 dark:to-neutral-50 text-neutral-50 dark:text-neutral-900 overflow-hidden py-1 sm:py-2 md:py-2 lg:py-3 flex items-center justify-center rounded-lg"
+    staggerFrom={"last"}
+    initial={{ y: "100%" }}
+    animate={{ y: 0 }}
+    exit={{ y: "-120%" }}
+    staggerDuration={0.025}
+    splitLevelClassName=""
+    transition={{ type: "spring", damping: 30, stiffness: 400, layout: { duration: 0.3, ease: "easeOut" } }}
+    rotationInterval={2000}
+  />
+</div>
+</LayoutGroup>
         <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 text-base lg:text-lg w-full sm:w-auto">
           <Link
             to="/catalogue"
@@ -116,12 +128,6 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
           </button>
         </div>
       </div>
-
-
-
-      
-
-
 
       <style>{`
           @keyframes float {
@@ -142,7 +148,5 @@ const Home = ({showLoginForm, setShowLoginForm}) => {
     </div>
   );
 };
-
-
 
 export default Home;

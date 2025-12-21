@@ -51,23 +51,6 @@ Navigate to `http://localhost:5173`
 - **Username**: `admin`
 - **Password**: `admin`
 
-### Key Actions
-- **Create Course**: Go to Dashboard > "+ Add New Course"
-- **Edit Course**: Dashboard > Click Edit Icon (pencil)
-- **Delete Course**: Dashboard > Click Delete Icon (trash)
-- **View Details**: Catalogue > Click Course Card
-
-## 📁 Project Structure
-
-```
-src/
-├── components/      # Navbar, LoginForm
-├── pages/          # Home, Dashboard, Catalogue, CourseAdd, CourseEdit, CoursePage, AboutUs
-├── redux/          # Store, courseSlice, adminSlice
-├── App.jsx         # Main routing
-└── main.jsx        # Entry point
-```
-
 ## 👥 Team
 
 **Mohammed Amine Rafi** - *Frontend Developer, UI/UX Designer*

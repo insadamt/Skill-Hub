@@ -16,16 +16,21 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.17.10",
+    "@radix-ui/react-use-controllable-state": "^1.2.2",
     "@reduxjs/toolkit": "^2.11.1",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.2",
+    "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "json-server": "^0.17.4",
     "lucide-react": "^0.560.0",
+    "motion": "^12.23.26",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.10.1",
+    "redux-ui": "^0.1.1",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
