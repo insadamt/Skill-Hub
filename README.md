@@ -56,7 +56,7 @@ Navigate to `http://localhost:5173`
 **Mohammed Amine Rafi** - *Frontend Developer, UI/UX Designer*
 - Role: Lead Developer, Redux Architecture, UI Implementation
 
-**Mohammed Abo Lhilal** - *Frontend Developer*
+**Mohammed Abou Lhilal** - *Frontend Developer*
 - Role: Component Development
 ---
 
